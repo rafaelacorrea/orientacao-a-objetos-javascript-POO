@@ -1,18 +1,18 @@
-const cliente1Nome = "Rafaela";
-const cliente1CPF = 11122233345;
-const cliente1Agencia = 1001;
-const cliente1Saldo = 0;
+import {Cliente} from "./Cliente.js"
+import {ContaCorrente} from "./ContaCorrente.js"
 
-const cliente2Nome = "Fernanda";
-const cliente2CPF = 11122233345;
-const cliente2Agencia = 1001;
-const cliente2Saldo = 0;
+const cliente1 = new Cliente("Rafaela", 11122233345);
 
-const cliente3Nome = "Frank";
-const cliente3CPF = 11122233345;
-const cliente3Agencia = 1001;
-const cliente3Saldo = 0;
+const cliente2 = new Cliente("Frank", 11122233452);
 
-console.log(cliente1Nome)
-console.log(cliente2Nome)
-console.log(cliente3Nome)
+
+const contaCorrenteRafaela = new ContaCorrente(cliente1, 1001);
+contaCorrenteRafaela.depositar(500);
+
+const contaCorrenteFrank = new ContaCorrente(cliente2, 1002);
+
+let valor = 200;
+contaCorrenteRafaela.transferir(valor, contaCorrenteFrank);
+
+console.log(contaCorrenteRafaela);
+console.log(`Numeros de contas criadas no ByteBank: ${ContaCorrente.numeroDeContas} contas criadas até o momento.`);
